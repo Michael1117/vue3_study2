@@ -57,3 +57,7 @@ git config --global credential.helper store
 git pull
 ```
 - https://www.jianshu.com/p/b6545f4cd317
+
+
+## 以下方法验证有效，生成ssh时最好不要设置密码
+## ssh-keygen -p -P 旧密码 -N '' -f ~/.ssh/id_rsa  https://www.cnblogs.com/chaojimali/p/12750936.html
