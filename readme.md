@@ -56,3 +56,6 @@ git config --global credential.helper store
 
 git pull
 ```
+
+
+- https://www.jianshu.com/p/b6545f4cd317
