@@ -53,4 +53,6 @@ git pull origin dev --allow-unrelated-histories
 
 ```
 git config --global credential.helper store
+
+git pull
 ```
