@@ -3,51 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 2</title>
+    <title>Lesson 3</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
     <div id="root">
-        
-    </div>
-    
+    </div>  
     <script>
-       /*  Vue.createApp({
-            data() {
-                return {
-                    content: 'hello world!!'
-                }
-            },
-            methods: {
-                handleBtnClick(){
-                    //console.log(this.content)
-                    this.content = this.content.split('').reverse().join('');
-                }
-            },
-            template: `
-                <div>
-                    {{content}}
-                    <button @click="handleBtnClick">翻转字符串</button>
-                </div>`
-        }).mount('#root') */
-
-
         Vue.createApp({
             data() {
                 return {
-                    show: true
+                    list: ['hello', 'world', 'dell', 'lee']
                 }
             },
             methods: {
-                handleBtnClick(){
-                   this.show = !this.show;
+                handleAddItem() {
+                    this.list.push('hello')
                 }
             },
             template: `
                 <div>
-                    <span v-if="show">hello world</span>
-                    <button @click="handleBtnClick">显示/隐藏</button>
-                </div>`
+                    <input v-model="inputValue"/>
+                    <button @click="handleAddItem">增加</button>
+                    <ul>
+                        <li v-for="item of list">{{item}}</li>
+                    </ul>
+                </div>
         }).mount('#root')
     </script>
 </body>
