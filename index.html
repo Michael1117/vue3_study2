@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 10</title>
-    <style>
-        .red {
-            color: red;
-        }
-        .green {
-            color: green
-        }
-        .fSize {
-            font-size: 50px;
-        }
-    </style>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
@@ -25,18 +14,27 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    show: false,
-                    conditionOne: false,
-                    conditionTwo: false
+                    listArray: ['01', 'hello', 'world'],
+                    listObject: {
+                        firstName: 'Michael',
+                        lastName: 'hee',
+                        job: 'teacher'
+                    }
+                }
+            },
+            methods: {
+                handleAddBtnClick() {
+                    //this.listArray.push("hello")
+                    ths.listArray.pop();
                 }
             },
             template: `
-                <div v-if="show">
-                    Hello World                  
+                <div>
+                    <div v-for="(item, index) in listArray" :key="item">
+                        {{item}} -- {{index}}
+                    </div>
+                    <button @click="handleAddBtnClick">新增</button>
                 </div>
-                <div v-if="conditionOne">Bye World</div>
-                <div v-else-if="conditionTwo">elseif</div>
-                <div v-else>else</div>
                 `
         })
         
