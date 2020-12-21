@@ -6,7 +6,7 @@
     <title>Lesson 9</title>
     <style>
         .red {
-            background: red;
+            color: red;
         }
         .green {
             color: green
@@ -32,14 +32,17 @@
             template: `
                 <div :class="classString">
                     Hello World
-                    
+                    <demo class="green"/>
                 </div>
-
-                <div :class="classObject">HaHa</div>
-                <div :class="classArray">HiHi</div>
                 `
         })
-
+        app.component('demo', {
+            template: `
+                <div :class="$attrs.class">one</div>
+                <div :class="$attrs.class">two</div>
+                <div class="green">three</div>
+            `
+        })
         const vm = app.mount('#root')
     </script>
 </body>
