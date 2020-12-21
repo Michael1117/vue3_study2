@@ -13,17 +13,41 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    message:'hello world'
+                    message:'hello world',
+                    count: 1,
+                    price: 45,
+                    newTotal: 10
+                }
+            },
+            watch: {
+                price() {
+                    setTimeout(() => {
+                        console.log('price changed')
+                    }, 3000)
+                }
+            },
+            computed: {
+                total() {
+                    //return this.count * this.price
+                    return Date.now()
                 }
             },
             methods: {
                 formatString(string) {
                     //console.log('click', this.message)
                     return string.toUpperCase();
+                },
+                getTotal() {
+                    //return this.count * this.price
+                    return Date.now()
                 }
             },
             template: `
-                <div @click="handleClick">{{formatString(message)}}</div>
+                <div>
+                    {{ total }}
+                    <div>{{getTotal()}}</div>
+                    {{message}}
+                </div>
                 `
         })
 
