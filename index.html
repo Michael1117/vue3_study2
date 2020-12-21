@@ -10,28 +10,27 @@
     <div id="root">
     </div>  
     <script>
-       /*  const app = Vue.createApp({
-            data() {
-                return {
-                    message: '<strong>hello world</strong>'
-                }
-            },
-            template: `
-                <div v-html="message">
-                    
-                </div>`
-        })
- */
         const app = Vue.createApp({
             data() {
                 return {
-                    disable: false
+                    message:'hello world',
+                    show: false,
+                    name: 'title1',
+                    event: 'click'
+                }
+            },
+            methods: {
+                handleClick() {
+                    alert('click')
                 }
             },
             template: `
-                <input :disabled="disable">
-                    
-                </input>`
+                <div 
+                    @[event]="handleClick"
+                    :[name]="message"
+                >
+                    {{message}}
+                </div>`
         })
 
         const vm = app.mount('#root')
