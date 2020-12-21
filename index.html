@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 8</title>
+    <title>Lesson 9</title>
+    <style>
+        .red {
+            background: red;
+        }
+        .green {
+            color: green
+        }
+        .fSize {
+            font-size: 50px;
+        }
+    </style>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
@@ -13,40 +24,19 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    message:'hello world',
-                    count: 1,
-                    price: 45,
-                    newTotal: 10
-                }
-            },
-            watch: {
-                price(current, prev) {
-                    this.newTotal = current * this.count;
-                }
-            },
-            computed: {
-                total() {
-                    //return this.count * this.price
-                    return Date.now() + this.count;
-                }
-            },
-            methods: {
-                formatString(string) {
-                    //console.log('click', this.message)
-                    return string.toUpperCase();
-                },
-                getTotal() {
-                    //return this.count * this.price
-                    return Date.now()
+                    classString: 'red',
+                    classObject: {red: false, green: true},
+                    classArray: ['red', 'green', "fSize"]
                 }
             },
             template: `
-                <div>
-                    {{ total }}
-                    <div>{{getTotal()}}</div>
-                    {{message}}
-                    {{ newTotal }}
+                <div :class="classString">
+                    Hello World
+                    
                 </div>
+
+                <div :class="classObject">HaHa</div>
+                <div :class="classArray">HiHi</div>
                 `
         })
 
