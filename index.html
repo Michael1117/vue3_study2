@@ -21,16 +21,19 @@
             },
             methods: {
                 handleClick() {
+                    //alert('click')
+                    //e.preventDefault();
                     alert('click')
                 }
             },
             template: `
-                <div 
-                    @[event]="handleClick"
-                    :[name]="message"
-                >
+                <form 
+                    action="https://www.baidu.com"
+                    @click.prevent="handleClick"
+                >   
+                    <button type="submit">提交</button>
                     {{message}}
-                </div>`
+                </form>`
         })
 
         const vm = app.mount('#root')
