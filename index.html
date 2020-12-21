@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lesson 2</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
@@ -15,16 +15,20 @@
         Vue.createApp({
             data() {
                 return {
-                    content: 1
+                    content: 'hello world!!'
                 }
             },
-            mounted() {
-                //console.log('mounted')
-                setInterval(()=>{
-                    this.content += 1
-                }, 1000)
+            methods: {
+                handleBtnClick(){
+                    //console.log(this.content)
+                    this.content = this.content.split('').reverse().join('');
+                }
             },
-            template: '<div>{{content}}</div>'
+            template: `
+                <div>
+                    {{content}}
+                    <button @click="handleBtnClick">翻转字符串</button>
+                </div>`
         }).mount('#root')
     </script>
 </body>
