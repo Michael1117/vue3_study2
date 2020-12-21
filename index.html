@@ -10,35 +10,31 @@
     <div id="root">
     </div>  
     <script>
-        const app = Vue.createApp({
+       /*  const app = Vue.createApp({
             data() {
                 return {
-                    inputValue: '',
-                    list: []
-                }
-            },
-            methods: {
-                handleAddItem() {
-                    this.list.push(this.inputValue)
-                    this.inputValue = ''
+                    message: '<strong>hello world</strong>'
                 }
             },
             template: `
-                <div>
-                    <input v-model="inputValue" />
-                    <button @click="handleAddItem" :title="inputValue">增加</button>
-                    <ul>
-                        <todo-item v-for="(item, index) of list" :content="item" :index="index"/>
-                    </ul>
+                <div v-html="message">
+                    
                 </div>`
         })
-
-        app.component('todo-item', {
-            props: ['content', "index"],
-            template: '<li>{{index}}--{{content}}</li>'
+ */
+        const app = Vue.createApp({
+            data() {
+                return {
+                    disable: false
+                }
+            },
+            template: `
+                <input :disabled="disable">
+                    
+                </input>`
         })
 
-        app.mount('#root')
+        const vm = app.mount('#root')
     </script>
 </body>
 </html>
