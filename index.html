@@ -26,13 +26,14 @@
                 return {
                     classString: 'red',
                     classObject: {red: false, green: true},
-                    classArray: ['red', 'green', "fSize"]
+                    classArray: ['red', 'green', "fSize"],
+                    //styleString: 'color: yellow;',
+
                 }
             },
             template: `
-                <div :class="classString">
-                    Hello World
-                    <demo class="green"/>
+                <div style="color: yellow;">
+                    Hello World                  
                 </div>
                 `
         })
