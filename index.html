@@ -12,7 +12,7 @@
     </div>
     
     <script>
-        Vue.createApp({
+       /*  Vue.createApp({
             data() {
                 return {
                     content: 'hello world!!'
@@ -28,6 +28,25 @@
                 <div>
                     {{content}}
                     <button @click="handleBtnClick">翻转字符串</button>
+                </div>`
+        }).mount('#root') */
+
+
+        Vue.createApp({
+            data() {
+                return {
+                    show: true
+                }
+            },
+            methods: {
+                handleBtnClick(){
+                   this.show = !this.show;
+                }
+            },
+            template: `
+                <div>
+                    <span v-if="show">hello world</span>
+                    <button @click="handleBtnClick">显示/隐藏</button>
                 </div>`
         }).mount('#root')
     </script>
