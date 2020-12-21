@@ -20,16 +20,14 @@
                 }
             },
             watch: {
-                price() {
-                    setTimeout(() => {
-                        console.log('price changed')
-                    }, 3000)
+                price(current, prev) {
+                    this.newTotal = current * this.count;
                 }
             },
             computed: {
                 total() {
                     //return this.count * this.price
-                    return Date.now()
+                    return Date.now() + this.count;
                 }
             },
             methods: {
@@ -47,6 +45,7 @@
                     {{ total }}
                     <div>{{getTotal()}}</div>
                     {{message}}
+                    {{ newTotal }}
                 </div>
                 `
         })
