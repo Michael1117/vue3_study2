@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 3</title>
+    <title>Lesson 8</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
@@ -13,27 +13,18 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    message:'hello world',
-                    show: false,
-                    name: 'title1',
-                    event: 'click'
+                    message:'hello world'
                 }
             },
             methods: {
-                handleClick() {
-                    //alert('click')
-                    //e.preventDefault();
-                    alert('click')
+                formatString(string) {
+                    //console.log('click', this.message)
+                    return string.toUpperCase();
                 }
             },
             template: `
-                <form 
-                    action="https://www.baidu.com"
-                    @click.prevent="handleClick"
-                >   
-                    <button type="submit">提交</button>
-                    {{message}}
-                </form>`
+                <div @click="handleClick">{{formatString(message)}}</div>
+                `
         })
 
         const vm = app.mount('#root')
