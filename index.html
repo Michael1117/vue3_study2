@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 9</title>
+    <title>Lesson 10</title>
     <style>
         .red {
             color: red;
@@ -21,32 +21,25 @@
     <div id="root">
     </div>  
     <script>
+        // v-show 通过css样式控制显示隐藏
         const app = Vue.createApp({
             data() {
                 return {
-                    classString: 'red',
-                    classObject: {red: false, green: true},
-                    classArray: ['red', 'green', "fSize"],
-                    styleString: 'color: yellow;',
-                    styleObject: {
-                        color: 'orange',
-                        background: 'yellow'
-                    }
+                    show: false,
+                    conditionOne: false,
+                    conditionTwo: false
                 }
             },
             template: `
-                <div :style="styleObject">
+                <div v-if="show">
                     Hello World                  
                 </div>
+                <div v-if="conditionOne">Bye World</div>
+                <div v-else-if="conditionTwo">elseif</div>
+                <div v-else>else</div>
                 `
         })
-        app.component('demo', {
-            template: `
-                <div :class="$attrs.class">one</div>
-                <div :class="$attrs.class">two</div>
-                <div class="green">three</div>
-            `
-        })
+        
         const vm = app.mount('#root')
     </script>
 </body>
