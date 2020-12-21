@@ -27,12 +27,15 @@
                     classString: 'red',
                     classObject: {red: false, green: true},
                     classArray: ['red', 'green', "fSize"],
-                    //styleString: 'color: yellow;',
-
+                    styleString: 'color: yellow;',
+                    styleObject: {
+                        color: 'orange',
+                        background: 'yellow'
+                    }
                 }
             },
             template: `
-                <div style="color: yellow;">
+                <div :style="styleObject">
                     Hello World                  
                 </div>
                 `
