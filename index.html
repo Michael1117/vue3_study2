@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 10</title>
+    <title>Lesson 12</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
@@ -14,26 +14,22 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    listArray: ['01', 'hello', 'world'],
-                    listObject: {
-                        firstName: 'Michael',
-                        lastName: 'hee',
-                        job: 'teacher'
-                    }
+                    counter: 0
                 }
             },
             methods: {
-                handleAddBtnClick() {
-                    //this.listArray.push("hello")
-                    ths.listArray.pop();
+                handleAddBtnClick(num, event) {
+                    console.log(num, event)
+                    this.counter+= num;
+                },
+                handleBtnClick() {
+                    alert('2')
                 }
             },
             template: `
                 <div>
-                    <div v-for="(item, index) in listArray" :key="item">
-                        {{item}} -- {{index}}
-                    </div>
-                    <button @click="handleAddBtnClick">新增</button>
+                    {{counter}}
+                    <button @click="handleAddBtnClick(2, $event), handleBtnClick()">新增</button>
                 </div>
                 `
         })
