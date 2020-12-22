@@ -18,23 +18,25 @@
                 }
             },
             methods: {
-                handleAddBtnClick(num, event) {
-                    console.log(num, event)
-                    this.counter+= num;
+                handleDivClick() {
+                    alert('div clicked')
                 },
                 handleBtnClick() {
-                    alert('2')
+                    this.counter += 1;
                 }
             },
             template: `
                 <div>
-                    {{counter}}
-                    <button @click="handleAddBtnClick(2, $event), handleBtnClick()">新增</button>
+                    <div @click.self="handleDivClick" style="background: red">
+                        {{counter}}
+                        <button @click="handleBtnClick">新增</button>
+                    </div>
                 </div>
                 `
         })
         
         const vm = app.mount('#root')
+        // stop self once capture prevent  scroll.passive
     </script>
 </body>
 </html>
